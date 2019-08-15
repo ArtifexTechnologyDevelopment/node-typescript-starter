@@ -1,0 +1,13 @@
+version: '3.6'
+
+services:
+  application:
+    build: .
+    image: cguertz/typescript-node
+    container_name: typescript-node
+    command: npm run watch
+    env_file: .env
+    ports:
+      - 3001:3001
+    expose:
+      - 3001
