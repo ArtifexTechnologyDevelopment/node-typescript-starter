@@ -5,7 +5,7 @@ WORKDIR /app
 
 COPY package.json package.json
 RUN npm i
-RUN npm i -g typescript nodemon
+RUN npm i -g typescript nodemon jest
 
 COPY . .
 
