@@ -3,11 +3,18 @@
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
+  "jest": {
+    "bail": true,
+    "verbose": true
+  },
   "scripts": {
     "start": "node dist/index.js",
     "dev": "docker-compose -f docker-compose.dev.yaml up --build",
-    "test": "tsc & mocha dist/**/*.spec.js",
-    "lint": "eslint src --ext ts --fix ."
+    "test": "docker-compose -f docker-compose.test.yaml up --build",
+    "tests": "jest dist/ --forceExit --runInBand --coverage",
+    "lint": "eslint src --ext ts --fix .",
+    "transpiler": "tsc -w --outDir dist/",
+    "server-dev": "sh -c 'touch dist/index.js && nodemon dist/index.js -d 300ms -w dist'"
   },
   "keywords": [],
   "author": "",
@@ -35,11 +42,10 @@
     "eslint-plugin-import": "2.3.0",
     "eslint-plugin-promise": "3.5.0",
     "husky": "^3.0.3",
+    "jest": "^24.9.0",
     "lint-staged": "^9.2.1",
-    "mocha": "3.4.2",
     "nodemon": "^1.11.0",
     "supertest": "3.0.0",
-    "tsc": "1.20150623.0",
     "typescript": "2.3.3",
     "typescript-eslint-parser": "^3.0.0"
   }
