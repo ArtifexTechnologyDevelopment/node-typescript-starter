@@ -4,12 +4,10 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-    "build": "tsc",
-    "dev": "docker-compose -f docker-compose.dev.yaml up",
-    "watch": "tsc --watch & nodemon -L --watch dist",
-    "test": "tsc && mocha dist/**/*.spec.js",
-    "lint": "eslint src --ext ts --fix .",
-    "tsc": "tsc"
+    "start": "node dist/index.js",
+    "dev": "docker-compose -f docker-compose.dev.yaml up --build",
+    "test": "tsc & mocha dist/**/*.spec.js",
+    "lint": "eslint src --ext ts --fix ."
   },
   "keywords": [],
   "author": "",

@@ -1,0 +1,18 @@
+version: '3.6'
+
+services:
+  mocha:
+    build: .
+    volumes_from:
+      - data
+    command: nodemon --watch dist -e js --delay 500ms --exec 'mocha --recursive --bail --colors --timeout 8000' ./dist/
+    tty: true
+    env_file: .env.testing
+
+  data:
+    build: .
+    volumes:
+      - .:/app
+      - /app/dist
+      - /app/node_modules
+    command: 'true'
