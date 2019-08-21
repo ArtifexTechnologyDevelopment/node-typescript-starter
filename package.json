@@ -2,11 +2,11 @@
   "name": "@risingstack/rest-api-typescript",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
     "dev": "docker-compose -f docker-compose.dev.yaml up",
-    "watch": "tsc --watch & nodemon dist",
+    "watch": "tsc --watch & nodemon -L --watch dist",
     "test": "tsc && mocha dist/**/*.spec.js",
     "lint": "eslint src --ext ts --fix .",
     "tsc": "tsc"
