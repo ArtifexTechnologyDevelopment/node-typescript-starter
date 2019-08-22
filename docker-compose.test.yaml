@@ -1,0 +1,15 @@
+mocha:
+  build: .
+  volumes_from:
+    - data
+  command: npm run tests
+  tty: true
+  env_file: .env.testing
+
+data:
+  build: .
+  volumes:
+    - .:/app
+    - /app/dist
+    - /app/node_modules
+  command: 'true'

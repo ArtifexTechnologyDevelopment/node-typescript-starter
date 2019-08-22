@@ -1,25 +1,26 @@
 ## Skeleton for Node.js applications written in TypeScript
 
-### Development
+### Local Development
 
-```bash
+```
 npm run dev
 ```
 
 ### Running tests
 
-```bash
-npm test
+```
+npm run test
 ```
 
-### Linting
+### Running seeders
 
-```bash
-npm run lint
+```
+npm run seed
 ```
 
-### Building a container
+### Technologies
 
-```bash
-docker build .
-```
+* TypeScript
+* Jest
+* Express
+* Node JS

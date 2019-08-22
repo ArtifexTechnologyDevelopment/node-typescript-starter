@@ -1,13 +1,24 @@
-version: '3.6'
+transpiler:
+  build: .
+  volumes_from:
+    - data
+  command: npm run transpiler
 
-services:
-  application:
-    build: .
-    image: cguertz/typescript-node
-    container_name: typescript-node
-    command: npm run watch
-    env_file: .env
-    ports:
-      - 3001:3001
-    expose:
-      - 3001
+server:
+  build: .
+  volumes_from:
+    - data
+  command: npm run server-dev
+  env_file: .env
+  expose:
+    - 3001
+  ports: 
+    - 3001:3001
+
+data:
+  build: .
+  volumes:
+    - .:/app
+    - /app/dist
+    - /app/node_modules
+  command: 'true'
