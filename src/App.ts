@@ -1,9 +1,9 @@
 import * as express from 'express';
 
 class App {
-  public express
+  public express;
 
-  constructor () {
+  constructor() {
     this.express = express();
     this.mountRoutes();
   }
